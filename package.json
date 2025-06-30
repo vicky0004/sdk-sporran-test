@@ -1,0 +1,31 @@
+{
+  "name": "sdk-sporran-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/index.ts",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@kiltprotocol/sdk-js": "^1.0.0",
+    "@types/node": "^24.0.0",
+    "@types/react-dom": "^19.1.6",
+    "axios": "^1.9.0",
+    "create-react-app": "^5.1.0",
+    "node": "^24.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.7"
+  }
+}
