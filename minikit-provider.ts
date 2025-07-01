@@ -23,15 +23,15 @@ export function MiniKitProvider(props: MiniKitProviderProps): React.ReactElement
     const installMiniKit = async () => {
       const result = await MiniKit.install(props.appId ?? 'unknown-app-id');
       if (result.success) {
-        const { did, web3Name } = result.initResult || {};
-        if (did && web3Name) {
-          const identity = {
-            did,
-            web3Name,
-            address: did
-          };
-          localStorage.setItem("identity", JSON.stringify(identity));
-        }
+        const { did, web3Name,email, name } = result.initResult || {};
+        const identity = {
+          did: did || '',
+          web3Name: web3Name || '',
+          address: did || '',
+          email: email || '',
+          name: name || '',
+        };
+        localStorage.setItem("identity", JSON.stringify(identity));
         setIsInstalled(true);
       } else {
         alert('MiniKit installation failed.');

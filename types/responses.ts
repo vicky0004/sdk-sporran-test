@@ -29,12 +29,14 @@ export type MiniAppInitSuccessPayload = {
   status: string;
   did?: string;
   web3Name?: string;
+  email?: string;
+  name?: string;
 }
 export type MiniAppInitErrorPayload = {
   status: string;
   message: string;
 };
-export type MiniAppInitPayload = MiniAppInitSuccessPayload ;
+export type MiniAppInitPayload = MiniAppInitSuccessPayload | MiniAppInitErrorPayload  ;
 
 type EventPayloadMap = {
   [ResponseEvent.MiniAppPayment]: MiniAppPaymentPayload;
