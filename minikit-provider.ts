@@ -5,9 +5,16 @@ import type { ReactNode } from 'react';
 
 interface MiniKitContextType {
   isInstalled: boolean;
+  identity: {
+    did?: string;
+    web3Name?: string;
+    address?: string;
+    email?: string;
+    name?: string;
+  };
 }
 
-const MiniKitContext = createContext<MiniKitContextType>({ isInstalled: false });
+const MiniKitContext = createContext<MiniKitContextType>({ isInstalled: false , identity: {} });
 
 export const useMiniKit = () => useContext(MiniKitContext);
 
@@ -18,6 +25,7 @@ interface MiniKitProviderProps {
 
 export function MiniKitProvider(props: MiniKitProviderProps): React.ReactElement {
   const [isInstalled, setIsInstalled] = useState(false);
+  const [identity, setIdentity ]  = useState({});
 
   useEffect(() => {
     const installMiniKit = async () => {
@@ -31,10 +39,10 @@ export function MiniKitProvider(props: MiniKitProviderProps): React.ReactElement
           email: email || '',
           name: name || '',
         };
-        localStorage.setItem("identity", JSON.stringify(identity));
+        setIdentity(identity);
         setIsInstalled(true);
       } else {
-        alert('MiniKit installation failed.');
+        console.log('MiniKit installation failed.');
       }
     };
     installMiniKit();
@@ -42,7 +50,7 @@ export function MiniKitProvider(props: MiniKitProviderProps): React.ReactElement
 
   return React.createElement(
     MiniKitContext.Provider,
-    { value: { isInstalled } },
+    { value: { isInstalled, identity } },
     props.children
   );
 }
