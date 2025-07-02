@@ -53,7 +53,8 @@ export const sendMiniKitEvent = <T extends WebViewBasePayload = WebViewBasePaylo
 export class MiniKit {
   private static readonly MINIKIT_VERSION = "1";
   private static readonly MINIKIT_MINOR_VERSION = "1";
-  private static readonly COMMAND_TIMEOUT = 30000; // 30 seconds
+  private static readonly COMMAND_TIMEOUT = 600000; // 10 mins
+
 
   private static listeners: Map<ResponseEvent, EventHandler> = new Map();
   
