@@ -29,6 +29,7 @@ export type MiniAppInitSuccessPayload = {
   status: string;
   did?: string;
   web3Name?: string;
+  walletAddress?: string;
   email?: string;
   name?: string;
 }

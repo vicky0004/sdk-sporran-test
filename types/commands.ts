@@ -27,6 +27,9 @@ export type InitCommandPayload = {
   status?: string;
   did?: string;
   web3name?: string;
+  walletAddress?: string;
+  email?: string;
+  name?: string;
   message?: string;
 };
 

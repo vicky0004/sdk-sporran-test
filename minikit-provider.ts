@@ -8,7 +8,7 @@ interface MiniKitContextType {
   identity: {
     did?: string;
     web3Name?: string;
-    address?: string;
+    walletAddress?: string;
     email?: string;
     name?: string;
   };
@@ -31,11 +31,11 @@ export function MiniKitProvider(props: MiniKitProviderProps): React.ReactElement
     const installMiniKit = async () => {
       const result = await MiniKit.install(props.appId ?? 'unknown-app-id');
       if (result.success) {
-        const { did, web3Name,email, name } = result.initResult || {};
+        const { did, web3Name, walletAddress, email, name } = result.initResult || {};
         const identity = {
           did: did || '',
           web3Name: web3Name || '',
-          address: did || '',
+          walletAddress: walletAddress || '',
           email: email || '',
           name: name || '',
         };
